@@ -26,15 +26,72 @@ function showHidden(elementId){
     const element=document.getElementById(elementId);
     element.classList.remove("hidden");
 }
+const life=document.getElementById("life");
+const score=document.getElementById("score");
+const finalScore=document.getElementById("final-score");
 
 function continueGame(){
     const alphabet=getARandomAlphabet();
     const screen=document.getElementById("screen");
     screen.innerText=alphabet;
     setBackgroundColor(alphabet);
-    
-    
+    }
+
+function keyboardButtonPress(event){
+    const pressed=event.key;
+        console.log("player pressed",pressed);
+        const alphabet=document.getElementById("screen").innerText.toLowerCase();
+        if (pressed===alphabet){
+            score.innerText++;
+            continueGame();
+            removeBackgroundColor(alphabet);
+        }
+        else{
+            life.innerText--;
+            if (life.innerText==0){
+                finalScore.innerText=score.innerText;
+                removeBackgroundColor(alphabet);
+                addHidden("ground");
+                showHidden("scores");
+            }
+            else{
+            continueGame();
+            removeBackgroundColor(alphabet);
+            }
+        }
+        // if (pressed===alphabet){
+        //     score.innerText++;
+        //     console.log("right");
+        //     continueGame();
+        //     removeBackgroundColor(alphabet);
+        // }
+        // else{
+        //     console.log("left");
+        //     finalScore.innerText=score.innerText;
+        //     removeBackgroundColor(alphabet);
+        //     addHidden("ground");
+        //     showHidden("scores");
+        //     life.innerText--;
+        // }
 }
+
+    //keyboard key buttons capture.
+document.addEventListener("keyup",keyboardButtonPress);
+function match(elementId){
+    const element=document.getElementById(elementId);
+    element.addEventListener("click",function(){
+        removeBackgroundColor(element);
+    })
+}
+const btn=document.getElementById("btn-1");
+btn.addEventListener("click",function(){
+    continueGame();
+    addHidden("scores");
+    showHidden("ground");
+    finalScore.innerText=0;
+    score.innerText=0;
+    life.innerText=3;
+});
 function setBackgroundColor(elementId){
     const element=document.getElementById(elementId);
     element.classList.add("bg-orange-400");
