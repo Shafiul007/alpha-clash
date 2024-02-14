@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,95 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.3/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>lets start</h1>
+<body class="bg-black">
+   <main class="min-h-screen bg-[010313] bg-no-repeat bg-center text-center bg-[url(./background.png)]">
+    <!--home screen-->
+    <section id="home" class="home min-h-screen flex flex-col items-center justify-center  ">
+        <h1 class="text-8xl text-white font-bold mb-8">ALPHA CLASH PRO</h1>
+        <p class="mb-8 text-2xl font-semibold text-gray-200">Unleash your keyboard kun g Fu : press "Enter" to play</p>
+        <button onclick="play()" class="btn bg-green-100 text-red-600 text-xl">Play Now</button>
+    </section>
+    <!--play ground-->
+    <section id="ground" class="play-ground pt-[50px] hidden">
+        <div >
+
+           <div class="px-[180px]">
+            <div class="artboard artboard-horizontal phone-6  border-black border-[15px] rounded-2xl bg-[#FFFFFFB3] mb-[50px]">
+                <div class="flex flex-col justify-center items-center">
+                    <p class="bg-black text-white p-2 w-2/4 rounded-b-xl translate-y-[-8px]">Don't watch keyboard while playing...</p>
+                </div>
+                <p id="screen" class="uppercase text-black text-9xl font-bold pt-[50px]">Y</p>
+            </div>
+           </div>
+
+            <div>
+                <div class="flex justify-center gap-1 my-1 w-full">
+                    <kbd id="q" class="kbd">q</kbd>
+                    <kbd id="w" class="kbd">w</kbd>
+                    <kbd id="e" class="kbd">e</kbd>
+                    <kbd id="r" class="kbd">r</kbd>
+                    <kbd id="t" class="kbd">t</kbd>
+                    <kbd id="y" class="kbd">y</kbd>
+                    <kbd id="u" class="kbd">u</kbd>
+                    <kbd id="i" class="kbd">i</kbd>
+                    <kbd id="o" class="kbd">o</kbd>
+                    <kbd id="p" class="kbd">p</kbd>
+                  </div> 
+                  <div class="flex justify-center gap-1 my-1 w-full">
+                    <kbd id="a" class="kbd">a</kbd>
+                    <kbd id="s" class="kbd">s</kbd>
+                    <kbd id="d" class="kbd">d</kbd>
+                    <kbd id="f" class="kbd">f</kbd>
+                    <kbd id="g" class="kbd">g</kbd>
+                    <kbd id="h" class="kbd">h</kbd>
+                    <kbd id="j" class="kbd">j</kbd>
+                    <kbd id="k" class="kbd">k</kbd>
+                    <kbd id="l" class="kbd">l</kbd>
+                  </div> 
+                  <div class="flex justify-center gap-1 my-1 w-full">
+                    <kbd id="z" class="kbd">z</kbd>
+                    <kbd id="x" class="kbd">x</kbd>
+                    <kbd id="c" class="kbd">c</kbd>
+                    <kbd id="v" class="kbd">v</kbd>
+                    <kbd id="b" class="kbd">b</kbd>
+                    <kbd id="n" class="kbd">n</kbd>
+                    <kbd id="m" class="kbd">m</kbd>
+                    <kbd id="/" class="kbd">/</kbd>
+                  </div>
+            </div>
+
+            <div class="w-full px-[100px] flex justify-between">
+
+                <button class="btn bg-orange-500 text-white p-3 rounded-full">
+                    Life
+                   <img src="./dollar (2).svg" alt="">
+                   1
+                  </button>
+                  <button class="btn rounded-full text-white p-3 bg-violet-600">
+                    Score
+                    <img src="./dollar (1).svg" alt="">
+                    1
+                  </button>
+                  
+            </div>
+
+        </div>
+    </section>
+    <!--score-->
+    <section id="score" class="score hidden flex items-center justify-center">
+        <div class="text-white border-white rounded-2xl space-y-[20px] h-3/4 pt-[100px] p-10
+        bg-lime-600 mt-[100px]">
+            <h1 class="text-8xl">
+                <span class="font-extrabold">Score:</span>
+                <span>14</span>
+            </h1>
+        
+        <button onclick="playAgain()" class="btn bg-green-700 border-0 text-white">Play again</button>
+        <p>Practice will make you pro</p>
+    </div>
+    </section>
+   </main>
+
+   <script src="script.js"></script>
 </body>
 </html>
