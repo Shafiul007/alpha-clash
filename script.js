@@ -35,6 +35,7 @@ function continueGame(){
     const screen=document.getElementById("screen");
     screen.innerText=alphabet;
     setBackgroundColor(alphabet);
+    document.addEventListener("keyup",keyboardButtonPress);
     }
 
 function keyboardButtonPress(event){
@@ -46,6 +47,12 @@ function keyboardButtonPress(event){
             continueGame();
             removeBackgroundColor(alphabet);
         }
+        else if(pressed==="Escape"){
+            finalScore.innerText=score.innerText;
+                removeBackgroundColor(alphabet);
+                addHidden("ground");
+                showHidden("scores");
+        }
         else{
             life.innerText--;
             if (life.innerText==0){
@@ -55,8 +62,9 @@ function keyboardButtonPress(event){
                 showHidden("scores");
             }
             else{
-            continueGame();
             removeBackgroundColor(alphabet);
+            continueGame();
+            
             }
         }
         // if (pressed===alphabet){
@@ -76,15 +84,17 @@ function keyboardButtonPress(event){
 }
 
     //keyboard key buttons capture.
-document.addEventListener("keyup",keyboardButtonPress);
+// document.addEventListener("keyup",keyboardButtonPress);
 function match(elementId){
     const element=document.getElementById(elementId);
     element.addEventListener("click",function(){
         removeBackgroundColor(element);
     })
 }
+  
 const btn=document.getElementById("btn-1");
 btn.addEventListener("click",function(){
+
     continueGame();
     addHidden("scores");
     showHidden("ground");
